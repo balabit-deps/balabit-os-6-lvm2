@@ -1,0 +1,22 @@
+From 89066121b25544ae01a0de78f18a796346322ab1 Mon Sep 17 00:00:00 2001
+From: Bastian Blank <waldi@debian.org>
+Date: Tue, 30 Jun 2015 11:46:12 +0200
+Subject: systemd
+
+---
+ scripts/lvm2_activation_generator_systemd_red_hat.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/lvm2_activation_generator_systemd_red_hat.c b/scripts/lvm2_activation_generator_systemd_red_hat.c
+index 8a1b173..3a48dbd 100644
+--- a/scripts/lvm2_activation_generator_systemd_red_hat.c
++++ b/scripts/lvm2_activation_generator_systemd_red_hat.c
+@@ -137,7 +137,7 @@ static int generate_unit(const char *dir, int unit, int sysinit_needed)
+ 		fprintf(f, "After=%s iscsi.service fcoe.service\n"
+ 			"Before=remote-fs-pre.target shutdown.target\n\n"
+ 			"[Service]\n"
+-			"ExecStartPre=/usr/bin/udevadm settle\n", unit_names[UNIT_MAIN]);
++			"ExecStartPre=/bin/udevadm settle\n", unit_names[UNIT_MAIN]);
+ 	} else {
+ 		if (unit == UNIT_EARLY) {
+ 			fputs("After=systemd-udev-settle.service\n"

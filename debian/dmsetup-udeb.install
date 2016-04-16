@@ -1,0 +1,2 @@
+../install_deb/lib/udev/rules.d/*dm*.rules lib/udev/rules.d/
+sbin/dmsetup
